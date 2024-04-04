@@ -1,0 +1,213 @@
+# version(1) - Translated by https://github.com/mhtvsSFrpHdE
+# Welcome to Clearlag's language file! Here you can modify the various strings ClearLag uses to suit your language, or preference
+# -- NOTE: This is the format: '<key>({replaceables}...):<message>'
+# -- NOTE: The replaceables are replaced depending on order, not the actual key name. So you may customize the key names too!
+# -- NOTE: The { ... } symbols represent a message block. This is applicable anywhere you want... Do not include any characters with {, or }
+
+####----> Commands -->
+command.error.wrongUsage({usage},{name})=&c语法错误： &8/&7lagg {name} {usage}
+command.error.noPermission({name})=&c没有权限使用 &8/&7lagg {name}
+command.error.onlyForPlayer()=&c只能被玩家使用的指令！
+
+##]-> /lagg
+command.lagg.nopermission()=&c没有权限使用这个指令！
+command.lagg.header()=&3-------------(&b&l要使用的Clearlag指令&3)-------------
+command.lagg.footer()=&3----------------------------------------------------
+command.lagg.helpline({name},{desc})= &4- &8/&3lagg &b{name} &f -  {desc}
+
+##]-> /lagg admin
+command.admin.name()=admin
+command.admin.desc()=(管理Clearlag的模块)
+command.admin.usage()=
+command.admin.enabledModules({moduleList})=&a激活了可重载的模块： &7{moduleList}
+command.admin.noReloadableFields({module})={module} &c不包含任何可重载的内容！
+command.admin.notEnabled({module})=&c此模块未激活！
+command.admin.reload({module})=&a模块 {module} 已经重新载入！
+command.admin.failedReload({module})=&c尝试重新载入 {module} 失败
+command.admin.invalidModule({argument})=&c无效的模块： {argument}
+command.admin.enabledModules({modules})=&a已激活的模块： &7{modules}
+command.admin.stoppedModule({module})=&a模块 {module} 已经被 &c停止&a！
+command.admin.startableModules({modules})=&a可启动的模块： &7{modules}
+command.admin.alreadyEnabled({module})=&c此模块已经被激活过！
+command.admin.enabled({module})=&a模块 {module} 已被激活！
+command.admin.moduleStatus({listeners},{commands},{tasks},{modules})={
+&3=--------------[&6-&3] &b&l模块状态 &3[&6-&3]----------------=
+              &8[&7Gray = 停用&8]   &8[&aGreen = 已激活&8]
+&6监听器: {commands}
+&6指令: {commands}
+&6任务: {tasks}
+&6模块: {modules}
+}
+command.admin.help()={
+&3=-------------[&6-&3] &b&l模块指令 &3[&6-&3]---------------=
+&4  - &3/lagg admin &creload &b<module>
+&4  - &3/lagg admin &cstop &b<module>
+&4  - &3/lagg admin &cstart &b<module>
+&4  - &3/lagg admin &clist
+&3-----------------------------------------------------
+}
+
+##]-> /lagg area
+command.area.name()=area
+command.area.usage()=<radius>
+command.area.desc()=(清空所在半径（raidus）内的实体)
+command.area.error({arg})=&4指定了无效的参数&8: &c{arg}
+command.area.message({removed},{radius})=&6[&aClearLag&6] 在半径 &3{radius}&b 的范围内移除了 &3{removed} &b 个实体！
+
+##]-> /lagg checkchunk
+command.checkchunk.name()=checkchunk
+command.checkchunk.usage()=
+command.checkchunk.desc()=(显示区块内的实体)
+command.checkchunk.header()=&4*&3&m                            &8(&a&l区块信息&8)&3&m                              &4*
+command.checkchunk.tilelist()=&3 方块动态实体（Tile Entities）&8:
+command.checkchunk.entitylist()=&3 实体&8:
+command.checkchunk.line({count},{type})=   &8- &ax{count} &7{type}
+command.checkchunk.footer()=&4*&3&m                                                                             &4*
+
+##]-> /lagg check
+command.check.name()=check
+command.check.usage()=[world1, world2...]
+command.check.desc()=(获得指定世界（world）含有的实体总数)
+command.check.invalidworld({arg})=&4指定了无效的世界&8: {arg}
+command.check.header()=&4*&3&m                          &8(&a&l服务器状态&8)&3&m                           &4*
+command.check.printed({removed1},{mobs},{animals},{players},{chunks},{activehoppers},{inactivehoppers},{spawners},{uptime},{tps},{usedmemory},{maxmemory},{freememory})={
+&3   地面的物品: &b{removed1}
+&3   生物: &b{mobs}
+&3   友好生物: &b{animals}
+&3   玩家: &b{players}
+&3   已加载区块: &b{chunks}
+&3   工作中的漏斗: &b{activehoppers}
+&3   空闲漏斗: &b{inactivehoppers}
+&3   工作中的刷怪箱: &b{spawners}
+&3   在线时间: &b{uptime}
+&3   当前TPS: &b{tps}
+&3   内存使用状态: &b{usedmemory}&7/&b{maxmemory} &7MB
+&3   空闲内存: &b{freememory} &7MB
+}
+command.check.footer()=&4*&3&m                                                                             &4*
+
+##]-> /lagg chunk
+command.chunk.name()=chunk
+command.chunk.usage()=[list-size]
+command.chunk.desc()=(查找资源消耗最大的区块)
+command.chunk.header()=&7&m                           &7( &b资源消耗最大的区块 &7)&m                           "
+command.chunk.print({order},{world},{x},{z},{count})=&4{order}&7) &3世界: &b{world}  &3x: &b{x}  &3z: &b{z}  &3实体: &b{count}
+
+##]-> /lagg clear
+command.clear.name()=clear
+command.clear.usage()=
+command.clear.desc()=(清空当前世界的实体)
+command.clear.message({count})=&6[&aClearLag&6] &a&b移除了 &3{count}&b 个实体！
+
+##]-> /lagg gc
+command.gc.name()=gc
+command.gc.usage()=
+command.gc.desc()=(向Java虚拟机请求垃圾回收)
+command.gc.message()=&6[&aClearLag&6] &a&b正在请求立刻回收垃圾！ &7(注意： 通常Java虚拟机会自动进行垃圾回收以便释放内存且效率很好。 仅在编程开发查错时使用此命令或需要立刻清空大块堆上内存。)
+
+##]-> /lagg halt
+command.halt.name()=halt
+command.halt.usage()=[on/off]
+command.halt.desc()=(停止大多数服务器活动)
+command.halt.halted()=&6[&aClearLag&6] &a&b已要求服务器活动停止！
+command.halt.unhalted()=&6[&aClearLag&6] &a&a已恢复服务器活动！
+
+##]-> /lagg killmobs
+command.killmobs.name()=killmobs
+command.killmobs.usage()=
+command.killmobs.desc()=(清空当前世界的生物)
+command.killmobs.message({count})=&6[&aClearLag&6] &a&b移除了 &3{count}&b 个实体！
+
+##]-> /lagg profile
+command.profile.name()=profile
+command.profile.usage()=<sample-seconds> <sample-type>
+command.profile.desc()=(调查低性能事件)
+command.profile.invalidtime({arg})=&4指定了无效的样本时间&8: &c{arg}
+command.profile.invalidprofiler({arg},{profilers})={
+&4指定了无效的调查器&8: &c{arg}
+&c可用的调查器&8: &7{profilers}
+}
+command.profile.nosamples()=&c在指定期间没有记录到样本
+command.profile.header()=&7&m                           &7( &b区块样本 &7)&m
+command.profile.line({listing},{world},{x},{z},{samples})=&4{listing}&7) &3世界： &b{world}&7, &3x: &b{x}&7, &3z: &b{z}   &3样本尺寸： &b{samples}
+command.profile.started({time})=&6[&aClearLag&6] &aProfiler started, running for &7{time} &aseconds
+
+##]-> /lagg reload
+command.reload.name()=reload
+command.reload.usage()=
+command.reload.desc()=(重新载入ClearLag)
+command.reload.begin()=&6[&aClearLag&6] &b尝试重载模块...
+command.reload.successful()=&6[&aClearLag&6] &b模块已重新载入！
+
+##]-> /lagg samplememory
+command.samplememory.name()=samplememory
+command.samplememory.usage()=<sample-seconds>
+command.samplememory.desc()=(统计内存/GC 使用情况)
+command.samplememory.invalidinteger({arg})=&4指定了无效的数字（整数）&8: &c{arg}
+command.samplememory.begin({time})=&a运行内存统计器，时长 &7{time} &a秒
+command.samplememory.header()=&4*&3&m                       &8(&a&l内存刻（Tick）状态&8)&3&m                        &4*
+command.samplememory.memory({high},{average})={
+&a内存 (以 MB 计算):
+&3   每Tick使用的最高内存量： &b{high}
+&3   每Tick平均使用的内存量： &b{average}
+}
+command.samplememory.gc({total},{highest},{lowest},{averagetime},{averageticks})={
+&a垃圾回收器 （基于Tick的，以毫秒计算）：
+&3   总计的GC （按Tick）： &b{total}
+&3   垃圾回收最长用时： &b{highest}
+&3   垃圾回收最短用时： &b{lowest}
+&3   垃圾回收平均用时： &b{averagetime}
+&3   两次回收之间平均经过： &b{averageticks} &3Tick
+}
+command.samplememory.notenoughtime()=&c指定的采样时间未达到触发垃圾回收器的最短要求
+
+##]-> /lagg sampleticks
+command.sampleticks.name()=sampleticks
+command.sampleticks.usage()=[ticksToSample] [raw/stats]
+command.sampleticks.desc()=(保留服务器的Tick样本)
+command.sampleticks.start({threadname},{time})=&a在线程 &7{threadname} &a上进行完整Tick统计，时间 &7{time} &aTick &7(估算, 并非绝对精确)
+command.sampleticks.rawheader()=&c原始Tick时间： &7(正常Tick应在0到50毫秒之间)
+command.sampleticks.rawprint({time})=&8 - {time}
+command.sampleticks.print({large},{small},{average},{spikes})={
+&aTick状态： &7(正常Tick应在0到50毫秒之间)
+&3   最长Tick： {large}
+&3   最短Tick： {small}
+&3   平均Tick： {average}
+&3   峰值： {spikes}
+}
+
+##]-> /lagg tpchunk
+command.tpchunk.name()=tpchunk
+command.tpchunk.usage()=<x> <z> [world]
+command.tpchunk.desc()=(传送到指定区块)
+command.tpchunk.begin()=&6[&aClearLag&6] &b尝试重载模块...
+command.tpchunk.successful()=&6[&aClearLag&6] &b模块已重新载入！
+command.tpchunk.invalidinteger({arg})=&4指定了无效的数字（整数）&8: &c{arg}
+command.tpchunk.invalidworld({arg})=&4指定的世界不存在&8: &c{arg}
+command.tpchunk.teleported({x},{z})=&6[&aClearLag&6] &b已传送到区块： &3{x}&7, &3{z}
+
+##]-> /lagg tps
+command.tps.name()=tps
+command.tps.usage()=
+command.tps.desc()=(显示服务器的平均Tick值)
+command.tps.print({tps})=&6[&aClearLag&6] &a{tps}
+
+##]-> /lagg unloadchunks
+command.unloadchunks.name()=unloadchunks
+command.unloadchunks.usage()=
+command.unloadchunks.desc()=(注销未使用的区块)
+command.unloadchunks.print({chunks})=&6[&aClearLag&6] &3{chunks} &b个区块已注销！
+
+##]-> /lagg memory
+command.memory.name()=memory
+command.memory.usage()=[tick-rate]
+command.memory.desc()=(View Heap info)
+command.memory.message()=&3Started JVM heap sampling on the listed memory pools
+command.memory.invalidinteger({arg})=&4Invalid poll-rate specified&8: &c{arg}
+
+##]-> /lagg performance
+command.performance.name()=performance
+command.performance.usage()=[tick-rate]
+command.performance.desc()=(View Server Performance)
+command.performance.message()=&3Started thread sampling (More &1sleep&3 is better!)
+command.performance.invalidinteger({arg})=&4Invalid poll-rate specified&8: &c{arg}

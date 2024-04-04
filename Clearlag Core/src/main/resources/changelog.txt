@@ -1,0 +1,3 @@
++Added passive entity count checking for per-entity-chunk-limiter check
+/Fixed space before warnings
++French, German, and BrazilianPortuguese languages added by translators

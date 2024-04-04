@@ -1,0 +1,213 @@
+# version(1)
+# Welcome to Clearlag's language file! Here you can modify the various strings ClearLag uses to suit your language, or preference
+# -- NOTE: This is the format: '<key>({replaceables}...):<message>'
+# -- NOTE: The replaceables are replaced depending on order, not the actual key name. So you may customize the key names too!
+# -- NOTE: The { ... } symbols represent a message block. This is applicable anywhere you want... Do not include any characters with {, or }
+
+####----> Commands -->
+command.error.wrongUsage({usage},{name})=&cFalsche Syntax: &8/&7lagg {name} {usage}
+command.error.noPermission({name})=&cDu hast keine Berechtigung diesen Command auszuführen &8/&7lagg {name}
+command.error.onlyForPlayer()=&cDieser Command kann nur von Spielern verwendet werden!
+
+##]-> /lagg
+command.lagg.nopermission()=&cDu hast keine Berechtigung diesen Command auszuführen!
+command.lagg.header()=&3-------------(&b&lDeine ClearLagg Commands&3)-------------
+command.lagg.footer()=&3----------------------------------------------------
+command.lagg.helpline({name},{desc})= &4- &8/&3lagg &b{name} &f -  {desc}
+
+##]-> /lagg admin
+command.admin.name()=admin
+command.admin.desc()=(Steuere Clearlag Module)
+command.admin.usage()=
+command.admin.enabledModules({moduleList})=&aAktiviere Reloadable Module: &7{moduleList}
+command.admin.noReloadableFields({module})={module} &chat keine Felder, welche reloaded werden können!
+command.admin.notEnabled({module})=&cDieses Modul ist nicht aktiviert!
+command.admin.reload({module})=&aModul {module} wurde aktiviert!
+command.admin.failedReload({module})=&cDas Modul {module} konnte nicht reloaded werden
+command.admin.invalidModule({argument})=&cUngültiges Modul: {argument}
+command.admin.enabledModules({modules})=&aAktivierte Module: &7{modules}
+command.admin.stoppedModule({module})=&aModul {module} wurde &cgestoppt&a!
+command.admin.startableModules({modules})=&aStartbare Module: &7{modules}
+command.admin.alreadyEnabled({module})=&cDieses Modul ist bereits aktiviert!
+command.admin.enabled({module})=&aModul {module} wurde aktiviert!
+command.admin.moduleStatus({listeners},{commands},{tasks},{modules})={
+&3=--------------[&6-&3] &b&lModul Status &3[&6-&3]----------------=
+              &8[&7Gray = Deaktiviert&8]   &8[&aGreen = Aktiviert&8]
+&6Listeners: {commands}
+&6Commands: {commands}
+&6Aufgaben: {tasks}
+&6Module: {modules}
+}
+command.admin.help()={
+&3=-------------[&6-&3] &b&lModul Commands &3[&6-&3]---------------=
+&4  - &3/lagg admin &creload &b<module>
+&4  - &3/lagg admin &cstop &b<module>
+&4  - &3/lagg admin &cstart &b<module>
+&4  - &3/lagg admin &clist
+&3-----------------------------------------------------
+}
+
+##]-> /lagg area
+command.area.name()=area
+command.area.usage()=<radius>
+command.area.desc()=(Entfernt Entites in einem bestimmten Radius)
+command.area.error({arg})=&4Ungeültiges Argument angegeben&8: &c{arg}
+command.area.message({removed},{radius})=&6[&aClearLag&6] &3{removed} &bEs wurden alle Entites in einem Radius von &3{radius}&b entfernt!
+
+##]-> /lagg checkchunk
+command.checkchunk.name()=checkchunk
+command.checkchunk.usage()=
+command.checkchunk.desc()=(Zeigt Entities in einem Chunk an)
+command.checkchunk.header()=&4*&3&m                            &8(&a&lChunk Info&8)&3&m                              &4*
+command.checkchunk.tilelist()=&3 Kachel Entities&8:
+command.checkchunk.entitylist()=&3 Entities&8:
+command.checkchunk.line({count},{type})=   &8- &ax{count} &7{type}
+command.checkchunk.footer()=&4*&3&m                                                                             &4*
+
+##]-> /lagg check
+command.check.name()=check
+command.check.usage()=[world1, world2...]
+command.check.desc()=(Zählt Entites in deiner/n Welt/en)
+command.check.invalidworld({arg})=&4Ungültige Welt angegeben&8: {arg}
+command.check.header()=&4*&3&m                          &8(&a&lServer Status&8)&3&m                           &4*
+command.check.printed({removed1},{mobs},{animals},{players},{chunks},{activehoppers},{inactivehoppers},{spawners},{uptime},{tps},{usedmemory},{maxmemory},{freememory})={
+&3   Items auf dem Boden: &b{removed1}
+&3   Lebende Mobs: &b{mobs}
+&3   Lebende freundliche Mobs: &b{animals}
+&3   Lebende Spieler: &b{players}
+&3   Geladene Chunks: &b{chunks}
+&3   Aktive Trichter: &b{activehoppers}
+&3   Inaktive Trichter: &b{inactivehoppers}
+&3   Aktive Spawner: &b{spawners}
+&3   Laufzeit: &b{uptime}
+&3   Aktuelle TPS: &b{tps}
+&3   RAM Verbrauch: &b{usedmemory}&7/&b{maxmemory} &7MB
+&3   Freier Arbeitsspeicher: &b{freememory} &7MB
+}
+command.check.footer()=&4*&3&m                                                                             &4*
+
+##]-> /lagg chunk
+command.chunk.name()=chunk
+command.chunk.usage()=[list-size]
+command.chunk.desc()=(Findet Chunks, welche laggen)
+command.chunk.header()=&7&m                           &7( &bGrößte Chunks &7)&m                           "
+command.chunk.print({order},{world},{x},{z},{count})=&4{order}&7) &3Welt: &b{world}  &3x: &b{x}  &3z: &b{z}  &3Entities: &b{count}
+
+##]-> /lagg clear
+command.clear.name()=clear
+command.clear.usage()=
+command.clear.desc()=(Löscht Entites von der Welt)
+command.clear.message({count})=&6[&aClearLag&6] &a&bEs wurden &3{count}&b Entites entfernt!
+
+##]-> /lagg gc
+command.gc.name()=gc
+command.gc.usage()=
+command.gc.desc()=(Ruft Java garbage-collectio auf)
+command.gc.message()=&6[&aClearLag&6] &a&bFrage Java garbage-collection an! &7(Achtung: Java's VM wird automatisch RAM freigeben. Benutze diesen Command nur, wenn du viel Heap freigeben musst)
+
+##]-> /lagg halt
+command.halt.name()=halt
+command.halt.usage()=[on/off]
+command.halt.desc()=(Stoppt die meisten Server Aktivitäten)
+command.halt.halted()=&6[&aClearLag&6] &a&bServer Aktivität wurde &cangehalten&b!
+command.halt.unhalted()=&6[&aClearLag&6] &a&aServer Aktivität wird nicht mehr angehalten!
+
+##]-> /lagg killmobs
+command.killmobs.name()=killmobs
+command.killmobs.usage()=
+command.killmobs.desc()=(Entfernt Mobs aus der Welt)
+command.killmobs.message({count})=&6[&aClearLag&6] &a&3{count} &bMobs wurden entfernt!
+
+##]-> /lagg profile
+command.profile.name()=profile
+command.profile.usage()=<sample-seconds> <sample-type>
+command.profile.desc()=(Profil lag inducing events)
+command.profile.invalidtime({arg})=&4Ungültige Beispielzeit definiert&8: &c{arg}
+command.profile.invalidprofiler({arg},{profilers})={
+&4Invalid Profiler Specified&8: &c{arg}
+&cValid Profilers&8: &7{profilers}
+}
+command.profile.nosamples()=&cEs wurden keine Beispiele in der Zeit festgestellt
+command.profile.header()=&7&m                           &7( &bChunk Samples &7)&m
+command.profile.line({listing},{world},{x},{z},{samples})=&4{listing}&7) &3Welt: &b{world}&7, &3x: &b{x}&7, &3z: &b{z}   &3Beispiel Größe: &b{samples}
+command.profile.started({time})=&6[&aClearLag&6] &aProfiler gestartet, läuft für &7{time} &aSekunden
+
+##]-> /lagg reload
+command.reload.name()=reload
+command.reload.usage()=
+command.reload.desc()=(Reloads clearlag)
+command.reload.begin()=&6[&aClearLag&6] &bVersuche Module ne zu laden...
+command.reload.successful()=&6[&aClearLag&6] &bModule wurden neu geladen!
+
+##]-> /lagg samplememory
+command.samplememory.name()=samplememory
+command.samplememory.usage()=<sample-seconds>
+command.samplememory.desc()=(Sample memory/GC Vervendung)
+command.samplememory.invalidinteger({arg})=&4Falscher Integer bereitgestellt&8: &c{arg}
+command.samplememory.begin({time})=&aBetreibe memory sampler für &7{time} &aSekunden
+command.samplememory.header()=&4*&3&m                       &8(&a&lMemory Tick Stats&8)&3&m                        &4*
+command.samplememory.memory({high},{average})={
+&aMemory (In MB):
+&3   Höchste RAM-Verwendung pro Tick: &b{high}
+&3   Durchschnittliche RAM-Verwendung pro Tick: &b{average}
+}
+command.samplememory.gc({total},{highest},{lowest},{averagetime},{averageticks})={
+&aGarbage Collector (Basiert auf ticks, in Millisekunden):
+&3   Totale GC collections (Pro Tick): &b{total}
+&3   Höchste Garbage Collector Zeit: &b{highest}
+&3   Niedrigste Garbage Collector Zeit: &b{lowest}
+&3   Durchschnittliche Garbage Collector Zeit: &b{averagetime}
+&3   Durchschnittliche Ticks zwischen Collections: &b{averageticks}
+}
+command.samplememory.notenoughtime()=&cNicht lang genug sample-time für garbage collector Ergebnisse
+
+##]-> /lagg sampleticks
+command.sampleticks.name()=sampleticks
+command.sampleticks.usage()=[ticksToSample] [raw/stats]
+command.sampleticks.desc()=(Sample your server's ticks)
+command.sampleticks.start({threadname},{time})=&aStarte full-tick sampling in Therad &7{threadname} &afür &7{time} &aticks &7(Schätzung, not 100% exakt)
+command.sampleticks.rawheader()=&cRaw tick-timings: &7(Normal tick is between 0-50ms in time)
+command.sampleticks.rawprint({time})=&8 - {time}
+command.sampleticks.print({large},{small},{average},{spikes})={
+&aTick-Stats: &7(Normaler tick ist zwischen 0-50ms in time)
+&3   Größter-tick: {large}
+&3   Kleinster-tick: {small}
+&3   Durchschnittlicher-tick: {average}
+&3   Spikes: {spikes}
+}
+
+##]-> /lagg tpchunk
+command.tpchunk.name()=tpchunk
+command.tpchunk.usage()=<x> <z> [world]
+command.tpchunk.desc()=(Teleport zu chunk)
+command.tpchunk.begin()=&6[&aClearLag&6] &bVersuche Module neu zu laden...
+command.tpchunk.successful()=&6[&aClearLag&6] &bModule wurden neu geladen!
+command.tpchunk.invalidinteger({arg})=&4Ungültiger Integer angegeben&8: &c{arg}
+command.tpchunk.invalidworld({arg})=&4Welt existiert nicht&8: &c{arg}
+command.tpchunk.teleported({x},{z})=&6[&aClearLag&6] &bTeleportiere zu Chunk: &3{x}&7, &3{z}
+
+##]-> /lagg tps
+command.tps.name()=tps
+command.tps.usage()=
+command.tps.desc()=(Zeigt durschnittliche Tick-Rate an)
+command.tps.print({tps})=&6[&aClearLag&6] &a{tps}
+
+##]-> /lagg unloadchunks
+command.unloadchunks.name()=unloadchunks
+command.unloadchunks.usage()=
+command.unloadchunks.desc()=(Entlädt nicht benötigte Chunks)
+command.unloadchunks.print({chunks})=&6[&aClearLag&6] &3{chunks} &bChunks wurden entladen!
+
+##]-> /lagg memory
+command.memory.name()=memory
+command.memory.usage()=[tick-rate]
+command.memory.desc()=(Zeige Heap info)
+command.memory.message()=&3Starte JVM heap sampling in den angezeigten memory-pools
+command.memory.invalidinteger({arg})=&4Ungültige poll-rate angegeben&8: &c{arg}
+
+##]-> /lagg performance
+command.performance.name()=performance
+command.performance.usage()=[tick-rate]
+command.performance.desc()=(Zeige Server Leistung an)
+command.performance.message()=&3Starte thread sampling (Mehr &1schlaf&3 ist besser!)
+command.performance.invalidinteger({arg})=&4Ungültige poll-rate angegeben&8: &c{arg}
