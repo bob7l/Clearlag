@@ -11,8 +11,6 @@
 
     <modules>
         <module>Clearlag Core</module>
-        <module>Clearlag Legacy</module>
-        <module>savedeathdrops</module>
     </modules>
 
 

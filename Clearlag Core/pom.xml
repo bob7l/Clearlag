@@ -11,32 +11,41 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>clearlag-core</artifactId>
     <packaging>jar</packaging>
+    <version>3.2.2</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
-
-        <!-- Spigot -->
+        <!-- Spigot Repository for 1.8 and later snapshots -->
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-
+        <!-- Optional: Add a repository for older builds if needed -->
+        <repository>
+            <id>spigot-legacy</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/legacy/</url>
+        </repository>
     </repositories>
 
-
     <dependencies>
-
+        <!-- Spigot API with a version compatible with 1.8 and later -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.20.4-R0.1-SNAPSHOT</version>
+            <version>1.8.8-R0.1-SNAPSHOT</version> <!-- Compatible with 1.8, works as a baseline -->
             <scope>provided</scope>
         </dependency>
-
+        <!-- JSON Simple for parsing CurseForge API responses -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -85,6 +94,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
+                    <!-- Optional: Customize shading if needed -->
                 </configuration>
                 <executions>
                     <execution>
@@ -95,8 +105,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
