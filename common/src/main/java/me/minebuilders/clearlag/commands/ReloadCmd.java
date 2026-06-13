@@ -1,0 +1,60 @@
+package me.minebuilders.clearlag.commands;
+
+import me.minebuilders.clearlag.ClearLag;
+import me.minebuilders.clearlag.annotations.AutoWire;
+import me.minebuilders.clearlag.annotations.ConfigPath;
+import me.minebuilders.clearlag.config.ConfigHandler;
+import me.minebuilders.clearlag.language.LanguageManager;
+import me.minebuilders.clearlag.language.LanguageValue;
+import me.minebuilders.clearlag.language.messages.MessageTree;
+import me.minebuilders.clearlag.modules.CommandModule;
+import me.minebuilders.clearlag.modules.Module;
+import org.bukkit.command.CommandSender;
+
+public class ReloadCmd extends CommandModule {
+
+    @AutoWire
+    private ConfigHandler configHandler;
+
+    @AutoWire
+    private LanguageManager languageManager;
+
+    @LanguageValue(key = "command.reload.")
+    private MessageTree lang;
+
+    @Override
+    protected void run(CommandSender sender, String[] args) {
+
+        lang.sendMessage("begin", sender);
+
+        for (Module mod : ClearLag.getModules()) {
+            if (mod.isEnabled()) {
+                ConfigPath configPath = mod.getClass().getAnnotation(ConfigPath.class);
+                if ((configPath != null)) {
+                    mod.setDisabled();
+                }
+            }
+        }
+
+        configHandler.reloadConfig();
+
+        languageManager.reload();
+
+        for (Module mod : ClearLag.getModules()) {
+            if (!mod.isEnabled()) {
+                ConfigPath configPath = mod.getClass().getAnnotation(ConfigPath.class);
+                if (configPath == null || (configHandler.getConfig().get(configPath.path() + ".enabled") == null || configHandler.getConfig().getBoolean(configPath.path() + ".enabled"))) {
+                    mod.setEnabled();
+                }
+            }
+        }
+
+        try {
+            configHandler.setModuleConfigValues();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        lang.sendMessage("successful", sender);
+    }
+}
