@@ -102,9 +102,9 @@ public class Util {
 
     public static String getBukkitVersion() {
 
-        String[] v = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3].split("-")[0].split("_");
+        String[] v = Bukkit.getBukkitVersion().split("-")[0].split("\\.");
 
-        return v[0].replace("v", "") + "." + v[1];
+        return v[0] + "." + v[1];
     }
 
     public static Date parseTime(String time) {

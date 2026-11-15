@@ -35,3 +35,6 @@
 
 # Windows Filesystem Dust
 Thumbs.db
+
+/docs/
+/Clearlag Core/dependency-reduced-pom.xml
