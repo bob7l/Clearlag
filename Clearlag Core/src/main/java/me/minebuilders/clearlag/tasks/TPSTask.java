@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 @ConfigPath(path = "settings")
@@ -171,11 +172,28 @@ public class TPSTask extends TaskModule {
 
         private final Field recentTpsField;
 
+        private final Method getTPSMethod;
+
         private final Object minecraftServerInstance;
 
         private double tps = 20.0;
 
         public InternalTPSYoinker() throws Exception {
+
+            Method paperTPS;
+            try {
+                paperTPS = Bukkit.getServer().getClass().getMethod("getTPS");
+            } catch (NoSuchMethodException e) {
+                paperTPS = null;
+            }
+            getTPSMethod = paperTPS;
+
+            // Paper exposes TPS without depending on versioned or mapped NMS names.
+            if (getTPSMethod != null) {
+                minecraftServerInstance = Bukkit.getServer();
+                recentTpsField = null;
+                return;
+            }
 
             Class<?> minecraftServerClazz = Class.forName("net.minecraft.server." + Util.getRawBukkitVersion() + ".MinecraftServer");
 
@@ -192,8 +210,10 @@ public class TPSTask extends TaskModule {
 
             if (++elapsedTicks % 60 == 0) {
                 try {
-                    tps = ((double[]) recentTpsField.get(minecraftServerInstance))[0];
-                } catch (IllegalAccessException e) {
+                    tps = ((double[]) (getTPSMethod != null
+                            ? getTPSMethod.invoke(minecraftServerInstance)
+                            : recentTpsField.get(minecraftServerInstance)))[0];
+                } catch (ReflectiveOperationException e) {
 
                     Util.warning("Clearlag failed to use the internal TPS tracker during runtime. Reverted to estimation... (" + e.getMessage() + ")");
 
